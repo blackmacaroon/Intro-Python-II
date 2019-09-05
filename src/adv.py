@@ -7,19 +7,18 @@ import time
 
 room = {
     'outside':  Room("Outside",
-                     "North of you, the house beckons"),
+                     "North of you, a house beckons"),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
+    'foyer':    Room("Foyer", """Dim light filters in from dusty windows to the south. Dark
 passages run north and east."""),
 
-    'bedroom': Room("Grand bedroom", """A dark, quiet bedroom appears before you, it's decorated in deep purples and smells lightly of jasmine. Ahead, you see a soft, warm bed on the north wall, but the floor is lava."""),
+    'bedroom': Room("Grand bedroom", """A dark, quiet bedroom appears before you, it's decorated in deep purples and smells lightly of jasmine. Ahead, you see a soft, warm bed on the north wall, your eyelids feel heavy and your knees are weak. Just a quick nap."""),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of bread permeates the air."""),
+to north. The smell of breads and meats and garlic permeates the air."""),
 
     'kitchen': Room("Kitchen Chamber", """You've found the long-lost kitchen
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+chamber! Come, child. Do not be afraid. Eat and be happy."""),
 }
 
 # Link rooms together
@@ -35,10 +34,42 @@ room['kitchen'].s_to = room['narrow']
 
 # Declare Items
 item = {"fork", "just in case."} 
+current_room = room['outside']
+
+# Set Commands
+quit = False
+while not quit:
+    # current_room = room['outside']
+    command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect\n(Q)uit\n\nCommand: ")
+    command = command.lower().strip()    #normalize inputs - lowercase and strip removes any extra leading or tailing spaces
+    if command == '':
+        continue
+    # command = command[0]      #no matter how long the input, just take the first letter - not perfect "eat" can head east
+    if command == 'q':
+        quit: True
+    elif command == 'n':    # head north
+        print("head north")
+        current_room = room[current_room].n_to
+    elif command == 's':    # head south
+        print("head south")
+        current_room = room[current_room].s_to
+        
+    elif command == 'e':    # head east
+        print("head east")
+        current_room = room[current_room].e_to
+        
+    elif command == 'w':    # head west
+        print("head west")
+        current_room = room[current_room].w_to
+        
+    elif command == 'i':    # investigate the area
+        pass
+    else:
+        print("not a valid command")
 #
 # Main
 #
-# Intro scene
+# Intro
 def displayIntro():
     print("welcome to the game")
     print("you could win")
@@ -52,7 +83,11 @@ def displayIntro():
     time.sleep(5)
     print("you know what? nevermind. welcome to the game where you die no matter what.")
 
-def setStage():
+# Set the scene
+def start():
+    player_name = input("Your name: ")
+    time.sleep(2)
+    answer = ("Do ")
 
 
 # Make a new player object that is currently in the 'outside' room.
@@ -67,10 +102,6 @@ def setStage():
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-quit = False
-
-
-
 
 
 displayIntro()

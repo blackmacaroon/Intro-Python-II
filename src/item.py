@@ -7,7 +7,8 @@ class Item:
         return f'{self.name} - {self.description}'
     def __repr__(self):
         return f'{repr(self.name)} - {repr(self.description)}'
-
-
-# kitchen_knife = Item("PokeyStick", "a 10-inch chef's knife")
-# print(kitchen_knife)
+    
+    # def on_grab(self):
+    #     print(f"grabbed {self.name}")
+    # def on_drop(self):
+    #     print(f"dropped {self.name}")
