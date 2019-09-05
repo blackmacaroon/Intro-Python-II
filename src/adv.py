@@ -34,12 +34,12 @@ room['kitchen'].s_to = room['narrow']
 
 # Declare Items
 item = {"fork", "just in case."} 
-current_room = room['outside']
+# current_room = room['outside']
 
 # Set Commands
 quit = False
 while not quit:
-    # current_room = room['outside']
+    current_room = room['outside']
     command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect\n(Q)uit\n\nCommand: ")
     command = command.lower().strip()    #normalize inputs - lowercase and strip removes any extra leading or tailing spaces
     if command == '':
@@ -48,22 +48,22 @@ while not quit:
     if command == 'q':
         quit: True
     elif command == 'n':    # head north
-        print("head north")
+        print("heading north")
         current_room = room[current_room].n_to
-    elif command == 's':    # head south
-        print("head south")
-        current_room = room[current_room].s_to
+    # elif command == 's':    # head south
+    #     print("heading south")
+    #     current_room = room[current_room].s_to
         
-    elif command == 'e':    # head east
-        print("head east")
-        current_room = room[current_room].e_to
+    # elif command == 'e':    # head east
+    #     print("heading east")
+    #     current_room = room[current_room].e_to
         
-    elif command == 'w':    # head west
-        print("head west")
-        current_room = room[current_room].w_to
+    # elif command == 'w':    # head west
+    #     print("heading west")
+    #     current_room = room[current_room].w_to
         
-    elif command == 'i':    # investigate the area
-        pass
+    # elif command == 'i':    # investigate the area
+    #     pass
     else:
         print("not a valid command")
 #
