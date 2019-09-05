@@ -36,9 +36,16 @@ room['kitchen'].s_to = room['narrow']
 item = {"fork", "just in case."} 
 # current_room = room['outside']
 
-# Set Commands
+#
+# Main
+#
+# 
+# Make a new player object that is currently in the 'outside' room.
+
 quit = False
-while not quit:
+player = Player(room['outside'])
+while quit is False:
+    print(player.room)
     current_room = room['outside']
     command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect\n(Q)uit\n\nCommand: ")
     command = command.lower().strip()    #normalize inputs - lowercase and strip removes any extra leading or tailing spaces
@@ -48,8 +55,10 @@ while not quit:
     if command == 'q':
         quit: True
     elif command == 'n':    # head north
-        print("heading north")
         current_room = room[current_room].n_to
+        print("heading north")
+        print(current_room)
+        
     # elif command == 's':    # head south
     #     print("heading south")
     #     current_room = room[current_room].s_to
@@ -65,32 +74,7 @@ while not quit:
     # elif command == 'i':    # investigate the area
     #     pass
     else:
-        print("not a valid command")
-#
-# Main
-#
-# Intro
-def displayIntro():
-    print("welcome to the game")
-    print("you could win")
-    print("or die")
-    time.sleep(3)
-    print("i mean, we all die, right?")
-    time.sleep(3)
-    print("but yours could be nasty.")
-    time.sleep(5)
-    print("although, dementia and strokes and cancer don't seem plesant...")
-    time.sleep(5)
-    print("you know what? nevermind. welcome to the game where you die no matter what.")
-
-# Set the scene
-def start():
-    player_name = input("Your name: ")
-    time.sleep(2)
-    answer = ("Do ")
-
-
-# Make a new player object that is currently in the 'outside' room.
+        print("not a valid command\ntry again")
 
 # Write a loop that:
 #
@@ -104,4 +88,3 @@ def start():
 # If the user enters "q", quit the game.
 
 
-displayIntro()

@@ -11,4 +11,7 @@ class Player:
     def __repr__(self):
         return f'{repr(self.name)} - {repr(self.current_room)}'
 
+    def next_room(self, new_room):
+        self.new_room = new_room
+
     # def Take_Item(self):
