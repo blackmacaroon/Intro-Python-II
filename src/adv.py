@@ -18,7 +18,7 @@ passages run north and east."""),
 to north. the smell of breads and meats and garlic permeates the air."""),
 
     'kitchen': Room("kitchen", """you've found the kitchen
-chamber! every inch of the table is covered in your favorite foods: buttery mashed potatoes, golden fried chicken, creamy cheesecake, hot pepperoni pizza, fresh baked focaccia, ripe juicy berries, melty cheese danish, sizzling crispy bacon, spicy red wine and a spongy angel-food cake dusted with confectioners sugar."""),
+chamber! every inch of the table is covered in your favorite foods: buttery mashed potatoes, golden fried chicken, creamy cheesecake, hot pepperoni pizza, fresh baked focaccia, ripe juicy berries, melty cheese danish, sizzling crispy bacon, a spongy angel-food cake dusted with confectioners sugar and spicy red zinfandel."""),
 }
 
 # Link rooms together
@@ -47,7 +47,7 @@ quit = False
 player = Player("Kayla", room['yard'])
 
 while quit is False:
-    # intro()
+    intro()
     print("you are in the", player.current_room)
     time.sleep(2)
     print("where will you go?")
@@ -60,28 +60,28 @@ while quit is False:
     if command == 'q':
         quit: True
         print("so long!")
-    if command == 'n':    # head north
+    elif command == 'n':    # head north
         print("heading north")
         time.sleep(2)
         if player.current_room.n_to:
             player.switch_room(player.current_room.n_to)
         else:
             print("Can't go that way.")
-    if command == 'e':    # head east
+    elif command == 'e':    # head east
         print("heading east")
         time.sleep(2)
         if player.current_room.e_to:
             player.switch_room(player.current_room.e_to)
         else:
             print("Can't go that way.")
-    if command == 's':    # head south
+    elif command == 's':    # head south
         print("heading south")
         time.sleep(2)
         if player.current_room.s_to:
             player.switch_room(player.current_room.s_to)
         else:
             print("Can't go that way.")
-    if command == 'w':    # head west
+    elif command == 'w':    # head west
         print("heading west")
         time.sleep(2)
         if player.current_room.w_to:
@@ -92,8 +92,8 @@ while quit is False:
         
     # elif command == 'i':    # investigate the area
     #     pass
-    # else:
-    #     print("not a valid command\ntry again")
+    else:
+        print("not a valid command\ntry again")
 
 # Write a loop that:
 #
@@ -106,4 +106,7 @@ while quit is False:
 #
 # If the user enters "q", quit the game.
 
+
+# how do I quit when I've hit the last rooms? sys.exit()?
+# 
 
