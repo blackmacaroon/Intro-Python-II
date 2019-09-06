@@ -6,13 +6,13 @@ import time
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside",
+    'yard':  Room("Yard",
                      "North of you, a house beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from dusty windows to the south. Dark
 passages run north and east."""),
 
-    'bedroom': Room("Grand bedroom", """A dark, quiet bedroom appears before you, it's decorated in deep purples and smells lightly of jasmine. Ahead, you see a soft, warm bed on the north wall, your eyelids feel heavy and your knees are weak. Just a quick nap."""),
+    'bedroom': Room("Grand bedroom", """A dark, quiet bedroom appears before you, it's decorated in deep purples and smells lightly of jasmine. Ahead, you see a soft, warm bed on the north wall, your eyelids feel heavy and your knees are weak. You lay down for a quick nap, but you never get up again."""),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
 to north. The smell of breads and meats and garlic permeates the air."""),
@@ -23,8 +23,8 @@ chamber! Come, child. Do not be afraid. Eat and be happy."""),
 
 # Link rooms together
 
-room['outside'].n_to = room['foyer']
-room['foyer'].s_to = room['outside']
+room['yard'].n_to = room['foyer']
+room['foyer'].s_to = room['yard']
 room['foyer'].n_to = room['bedroom']
 room['foyer'].e_to = room['narrow']
 room['bedroom'].s_to = room['foyer']
@@ -34,20 +34,20 @@ room['kitchen'].s_to = room['narrow']
 
 # Declare Items
 item = {"fork", "just in case."} 
-current_room = room['outside']
+current_room = room['yard']
 
 #
 # Main
 #
 # 
-# Make a new player object that is currently in the 'outside' room.
+# Make a new player object that is currently in the 'yard' room.
 
 quit = False
 
-player = Player("Kayla", room['outside'])
+player = Player("Kayla", room['yard'])
 
 while quit is False:
-    print("player room", player.current_room)
+    print("you are in the", player.current_room)
     command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect area\n(Q)uit the game\n\nCommand: ")
     command = command.lower().strip()    #normalize inputs - lowercase and strip removes any extra leading or tailing spaces
     # if command == '':
