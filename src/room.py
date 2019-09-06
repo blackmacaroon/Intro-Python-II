@@ -11,4 +11,4 @@ class Room:
     def __str__(self):
         return f'{self.name} - {self.description}'
     def __repr__(self):
-        return f'{repr(self.name)} - {repr(self.description)}'
+        return f'({repr(self.name)} - {repr(self.description)})'

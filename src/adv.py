@@ -1,6 +1,6 @@
 from room import Room
 from player import Player
-from item import Item
+
 import time
 
 # Declare all the rooms
@@ -34,7 +34,7 @@ room['kitchen'].s_to = room['narrow']
 
 # Declare Items
 item = {"fork", "just in case."} 
-# current_room = room['outside']
+current_room = room['outside']
 
 #
 # Main
@@ -43,21 +43,25 @@ item = {"fork", "just in case."}
 # Make a new player object that is currently in the 'outside' room.
 
 quit = False
-player = Player(room['outside'])
+
+player = Player("Kayla", room['outside'])
+
 while quit is False:
-    print(player.room)
-    current_room = room['outside']
-    command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect\n(Q)uit\n\nCommand: ")
+    print("player room", player.current_room)
+    command = input(f"\n(N)orth\n(E)ast\n(S)outh\n(W)est\n(I)nspect area\n(Q)uit the game\n\nCommand: ")
     command = command.lower().strip()    #normalize inputs - lowercase and strip removes any extra leading or tailing spaces
-    if command == '':
-        continue
+    # if command == '':
+    #     continue
     # command = command[0]      #no matter how long the input, just take the first letter - not perfect "eat" can head east
     if command == 'q':
         quit: True
-    elif command == 'n':    # head north
-        current_room = room[current_room].n_to
-        print("heading north")
-        print(current_room)
+    if command == 'n':    # head north
+        if player.current_room.n_to:
+            player.switch_room(player.current_room.n_to)
+        else:
+            print("Can't go that way.")
+        # print("heading north")
+        # print(current_room)
         
     # elif command == 's':    # head south
     #     print("heading south")
