@@ -66,28 +66,28 @@ while quit is False:
         if player.current_room.n_to:
             player.switch_room(player.current_room.n_to)
         else:
-            print("Can't go that way.")
+            print("Can't go north.")
     elif command == 'e':    # head east
         print("heading east")
         time.sleep(2)
         if player.current_room.e_to:
             player.switch_room(player.current_room.e_to)
         else:
-            print("Can't go that way.")
+            print("Can't go east.")
     elif command == 's':    # head south
         print("heading south")
         time.sleep(2)
         if player.current_room.s_to:
             player.switch_room(player.current_room.s_to)
         else:
-            print("Can't go that way.")
+            print("Can't go south.")
     elif command == 'w':    # head west
         print("heading west")
         time.sleep(2)
         if player.current_room.w_to:
             player.switch_room(player.current_room.w_to)
         else:
-            print("Can't go that way.")
+            print("Can't go west.")
         
         
     # elif command == 'i':    # investigate the area
