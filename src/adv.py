@@ -47,8 +47,8 @@ quit = False
 player = Player("Kayla", room['yard'])
 
 while quit is False:
-    intro()
-    print("you are in the", player.current_room)
+    # intro()
+    print("you are in a", player.current_room)
     time.sleep(2)
     print("where will you go?")
     time.sleep(2)
